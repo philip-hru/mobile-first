@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+a:visited {
+    color: #333333;
+}
+
+header {
+    background-color: #e2e2e2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+    list-style: none;
+}
+
+.logo {
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.mouse {
+    background-image: url(images/mx-vertical-pdp.jpg);
+    background-size: cover;
+    padding: 20px;
+}
+
+.mouseP {
+    width: 40%;
+    font-size: 14px;
+}
+
+input {
+    border: 1px solid #333333;
+    padding: 5px 15px 5px 15px;
+    background-color: rgba(33, 33, 33, 0.3);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+.mousetext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #e2e2e2;
+}
+
+.mxvertical {
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+}
+
+#menu__toggle {
+    opacity: 0;
+}
+
+footer {
+    background-color: #2a2a2a;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerA {
+    color: white;
+}
+
+.footerA:visited {
+    color: #e2e2e2;
+}
+
+@media (min-width: 640px) {
+    header {
+        padding-bottom: 5px;
+    }
+
+    .logo {
+        width: 35%;
+    }
+
+    .mouse {
+        padding: 100px 20px 60px 20px;
+    }
+
+    input {
+        margin-top: 5px;
+        padding: 10px 30px 10px 30px;
+    }
+
+    .group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .mouse,
+    .mousetext,
+    footer {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .logo {
+        width: 30%;
+    }
+
+    .mousetext {
+        flex-direction: row;
+        gap: 40px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .logo {
+        width: 25%;
+    }
+
+    .mouse {
+        padding-top: 250px;
+    }
+
+    header {
+
+        padding-bottom: 100px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .mousetext {
+        width: 1000px;
+        margin: auto;
+    }
+
+    .mouse {
+        width: 1000px;
+        margin: auto;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+
+
+    /* стилизуем кнопку */
+    .menu__btn {
+        display: flex;
+        /* используем flex для центрирования содержимого */
+        align-items: center;
+        /* центрируем содержимое кнопки */
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 26px;
+        height: 26px;
+        z-index: 1;
+    }
+
+    /* добавляем "гамбургер" */
+    .menu__btn>span,
+    .menu__btn>span::before,
+    .menu__btn>span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #616161;
+    }
+
+    .menu__btn>span::before {
+        content: '';
+        top: -8px;
+    }
+
+    .menu__btn>span::after {
+        content: '';
+        top: 8px;
+    }
+
+    /* контейнер меню */
+    .menu__box {
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        top: 0;
+        left: -100%;
+        width: 30%;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        list-style: none;
+        text-align: center;
+        background-color: #ECEFF1;
+    }
+
+    /* элементы меню */
+    .menu__item {
+        display: block;
+        padding: 12px 24px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .menu__item:hover {
+        background-color: #CFD8DC;
+    }
+
+    #menu__toggle:checked~.menu__btn>span {
+        transform: rotate(45deg);
+    }
+
+    #menu__toggle:checked~.menu__btn>span::before {
+        top: 0;
+        transform: rotate(0);
+    }
+
+    #menu__toggle:checked~.menu__btn>span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    #menu__toggle:checked~.menu__box {
+        visibility: visible;
+        left: 0;
+        animation-name: backInLeft;
+        animation-duration: 1000ms;
+    }
+}
